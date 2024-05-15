@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Hiring Service - Your one stop recruitment services</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"> </script>
@@ -260,6 +264,16 @@ td, th {
 }
 
 @media only screen and (max-width: 800px) {
+
+#regForm {
+  margin:  0px;
+  padding: 20px;
+  width: 100%;
+}
+
+.date_div p {
+  width: 100%;
+}
   .flex{
     display: block;
   }
@@ -305,7 +319,7 @@ td, th {
 </style>
 <body>
 
-<form id="regForm">
+<form id="regForm" enctype="multipart/form-data">
     <div class="header">
         <img src="logo.png" width="145px" height="130px"/> 
         <div class="heading">
@@ -348,7 +362,7 @@ td, th {
     
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
-    <div class="required">
+    <div class="">
         <p><input placeholder="Position Applied For" oninput="this.className = ''" name="papplied" required></p>
         <div class="flex row">
             <p><input placeholder="Availability (Hours/Days):" oninput="this.className = ''" name="availablity" required></p>
@@ -389,7 +403,7 @@ td, th {
         </div>
     </div>
 
-    <div class="required">
+    <div class="">
         <div class="section">
             <h3 class="underlined">Next of Kin:</h3>
             <div class="flex row">
@@ -409,7 +423,7 @@ td, th {
    
   </div>
   <div class="tab">
-    <div class="required">
+    <div class="">
         <h2>Equal Opportunity:</h2>
     <p>We are an Equal Opportunity Employer. The aim of our policy is to ensure that no job applicant or employee receives less favourable treatment on the grounds of race, colour, creed, nationality, ethnic or national origin, religious belief, political opinion or affiliation, sex, marital status, sexual orientation or disability, or is disadvantaged by conditions or requirements which cannot be shown to be justifiable.</p>
     <p>Our selection criteria and procedures are frequently reviewed to ensure that individuals are selected, promoted and treated on the basis of their relevant merits and abilities. </p>
@@ -445,7 +459,7 @@ td, th {
         
   </div>
   <div class="tab">
-    <div class="required">
+    <div class="">
       <h2>Qualifications & Trainings</h2>
     <p>Provide details of vocational /academic qualifications you have, most recent at first.</p>
     <div class="quali_section">
@@ -461,17 +475,17 @@ td, th {
         <div class="flex row">
             <div class="qualify">
                 <span>Course Start Date:</span>
-                <p><input placeholder="Course start date:" type="date" oninput="this.className = ''" name="csdate" required></p>
+                <p><input placeholder="Course start date:" type="date" oninput="this.className = ''" name="csdate[]" required></p>
             </div>
             <div class="qualify ml-20">
                 <span>Course End Date:</span>
-                <p><input placeholder="Course end date:" type="date" oninput="this.className = ''" name="cedate" required></p>
+                <p><input placeholder="Course end date:" type="date" oninput="this.className = ''" name="cedate[]" required></p>
             </div>
             
         </div>
         <div class="flex row">
-            <p><input placeholder="Instution:" oninput="this.className = ''" name="institution" required></p>
-            <p><input placeholder="Qualifications:" oninput="this.className = ''" name="qual" required></p>
+            <p><input placeholder="Instution:" oninput="this.className = ''" name="institution[]" required></p>
+            <p><input placeholder="Qualifications:" oninput="this.className = ''" name="qual[]" required></p>
         </div>
     </div>
     </div>
@@ -482,7 +496,7 @@ td, th {
     <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p> -->
   </div>
   <div class="tab">
-    <div class="required">
+    <div class="">
       <h2>Employment History</h2>
       <p>Please write your current and previous employment history for last 10 YEARS (most recent first)</p>
       <div class="employ_section">
@@ -498,24 +512,24 @@ td, th {
               <div class="flex row">
                   <div class="qualify">
                       <span>Start Date:</span>
-                      <p><input placeholder="Course start date:" type="date" oninput="this.className = ''" name="esdate" required></p>
+                      <p><input placeholder="Course start date:" type="date" oninput="this.className = ''" name="esdate[]" required></p>
                   </div>
                   <div class="qualify ml-20">
                       <span>End Date:</span>
-                      <p><input placeholder="Course end date:" type="date" oninput="this.className = ''" name="eedate" required></p>
+                      <p><input placeholder="Course end date:" type="date" oninput="this.className = ''" name="eedate[]" required></p>
                   </div>
                   
               </div>
               <div class="flex row">
-                  <p><input placeholder="Post Applied For:" oninput="this.className = ''" name="epost" required></p>
-                  <p><textarea placeholder="Roles and Responsibilities:" oninput="this.className = ''" name="eroles" rows="8" cols="73" required></textarea></p>
+                  <p><input placeholder="Post Applied For:" oninput="this.className = ''" name="epost[]" required></p>
+                  <p><textarea placeholder="Roles and Responsibilities:" oninput="this.className = ''" name="eroles[]" rows="8" cols="73" required></textarea></p>
               </div>
           </div>
       </div>
     </div>
   </div>
   <div class="tab">
-    <div class="required">
+    <div class="">
       <h2>References:</h2>
     <p>Please provide details of two referees, one being your present or most recent employer. Relatives are not allowed.  (Referees are not usually contacted unless you are shortlisted for an interview) </p>
       
@@ -552,7 +566,7 @@ td, th {
     
   </div>
   <div class="tab">
-    <div class="required">
+    <div class="">
       <h2>Disclosure & Declaration:</h2>
       <p>(A) Have you been Convicted or cautioned (excluding youth caution, reprimands, or warnings) in a manner that is not classified as protected according to the Ministry of justice?  </p>
           <div class="radio rgender">
@@ -579,7 +593,7 @@ td, th {
     <p>2. A copy of your valid passport and any visa required for your eligibility to work in the UK.</p>
   </div>
   <div class="tab declaration gaps">
-    <div class="required">
+    <div class="">
       <h2>Candidates Declaration:</h2>
       <ul>
           <li>I confirm that the above details are complete and correct and that I am eligible to live and work in the United Kingdom. In addition, I understand that if any of the above details change, then I must contact Hiring Services Recruitment Solutions to complete an alternative form.</li>
@@ -597,7 +611,7 @@ td, th {
     </div>
   </div>
   <div class="tab bank">
-    <div class="required">
+    <div class="">
       <h2>Bank Details:</h2>
       <table>
           <tr>
@@ -629,7 +643,7 @@ td, th {
     </div>
   </div>
   <div class="tab opt_out">
-    <div class="required">
+    <div class="">
       <h2 class="side">48 HOURS OPT OUT AGREEMENT</h2>
       <p class="head"><b>1. DEFINITONS</b></p>
       <p>1.1. In this Agreement the following definitions apply:</p>
@@ -668,7 +682,7 @@ td, th {
     </div>
   </div>
   <div class="tab data_cnsnt">
-    <div class="required">
+    <div class="">
       <h2>Data Consent Form/GDPR:</h2>
       <table>
           <tr>
@@ -733,7 +747,7 @@ td, th {
     </div>
   </div>
   <div class="tab data_cnsnt">
-    <div class="required">
+    <div class="">
       <h2>COMPLIANCE CHECKLIST:</h2>
       <table>
         <tr>
@@ -741,7 +755,7 @@ td, th {
           <td><input type="file" id="cv" name="cv" oninput="this.className = ''"></td>
         </tr>
         <tr>
-          <td>Address Verification</td>
+          <td>Proof of Address</td>
           <td><input type="file" id="bankstmnt" name="bankstmnt" oninput="this.className = ''"></td>
         </tr>
         <tr>
@@ -749,7 +763,7 @@ td, th {
             <td><input type="file" id="passprt" name="passprt" oninput="this.className = ''"></td>
         </tr>
         <tr>
-            <td>Right to work</td>
+            <td>National Insurance</td>
             <td><input type="file" id="writowrk" name="writowrk" oninput="this.className = ''"></td>
         </tr>
         <tr>
@@ -805,8 +819,17 @@ var signDate = document.getElementsByClassName('signdate')
 var drawing = false;
 var prevX, prevY;
 var currX, currY;
+
 var now = new Date();
-var datetime = now.toLocaleString();
+var day = now.getDate();
+var month = now.getMonth() + 1;
+var year = now.getFullYear();
+
+if (month < 10) month = "0" + month;
+if (day < 10) day = "0" + day;
+
+var today =  day + "/" + month + "/" + year;       
+// var datetime = now.toLocaleString();
 
  
 
@@ -816,7 +839,7 @@ for (var i=0; i<canvasList.length; i++) {
 
 for (var j=0; j<canvasList.length; j++) {
    // Insert date and time into HTML
-   signDate[j].innerHTML = datetime;
+   signDate[j].value = today;
 }
 
 function add_canva_event(canvas){
@@ -976,7 +999,7 @@ function submitForm(){
   document.getElementById("myProgress").style.display = "block";
   var formData = $('form').serialize(); 
   console.log(formData)
-  var url = 'http://13.51.56.12:8000/MedBot/forms?' + formData
+  var url = 'http://127.0.0.1:8000/MedBot/forms?' + formData
   $.ajax({ 
           url:url, 
           method: 'GET', 
@@ -984,7 +1007,7 @@ function submitForm(){
           processData: false, 
           contentType: false, 
           success: function (response) {
-              deleteFile()                   
+              // deleteFile()                   
           }, 
           error: function (xhr, status, error) {
               move("Could Not submit form. Try Again")                          
