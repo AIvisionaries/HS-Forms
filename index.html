@@ -319,7 +319,7 @@ td, th {
 </style>
 <body>
 
-<form id="regForm" enctype="multipart/form-data">
+<form id="regForm" enctype="multipart/form-data" method="post">
     <div class="header">
         <img src="logo.png" width="145px" height="130px"/> 
         <div class="heading">
@@ -991,29 +991,68 @@ function nextPrev(n) {
   // Otherwise, display the correct tab:
   showTab(currentTab);
 }
+function getCookie(c_name) {
+        if(document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if(c_start != -1) {
+                c_start = c_start + c_name.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if(c_end == -1) c_end = document.cookie.length;
+                return unescape(document.cookie.substring(c_start,c_end));
+            }
+        }
+        return "";
+    }
+
 
 function submitForm(){
   document.getElementById("prevBtn").style.display = "none";
   document.getElementById("nextBtn").style.display = "none";
   document.getElementsByClassName("dotbar")[0].style.display = "none";
   document.getElementById("myProgress").style.display = "block";
-  var formData = $('form').serialize(); 
+  
+  var form = $('form'); 
+  var formData = new FormData(form[0]);
   console.log(formData)
-  var url = 'http://127.0.0.1:8000/MedBot/forms?' + formData
-  $.ajax({ 
-          url:url, 
-          method: 'GET', 
-          // data: formData, 
-          processData: false, 
-          contentType: false, 
-          success: function (response) {
-              // deleteFile()                   
-          }, 
-          error: function (xhr, status, error) {
-              move("Could Not submit form. Try Again")                          
-                        // console.error(error); 
-          } 
-        }); 
+  
+  var url = 'http://127.0.0.1:8000/MedBot/compliance/'
+  $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    },
+        // crossDomain: true,
+            // data: JSON.stringify(formData),
+            // dataType: "json",
+        async: false,
+        success: function (data) {
+            alert(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+    
+    // return false;
+  // $.ajax({ 
+  //         url:url, 
+  //         method: 'GET', 
+  //         // data: formData, 
+  //         processData: false, 
+  //         contentType: false, 
+  //         success: function (response) {
+  //             // deleteFile()                   
+  //         }, 
+  //         error: function (xhr, status, error) {
+  //             move("Could Not submit form. Try Again")                          
+  //                       // console.error(error); 
+  //         } 
+  //       }); 
   return false;
 }
 
